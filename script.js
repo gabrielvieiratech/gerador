@@ -6,10 +6,10 @@ let containerPassword = document.querySelector('#container-password');
 
 
 let charset = 'abcdefghijklmnopqrstuvwxwzABCDEFGHIJKLMNOPQRSTUVWXYZ123456789!@';
-let novaSenha = "";
+let newPassword = "";
 
 sizePassword.innerHTML = sliderElement.value;
-sliderElement.oninput = function() { // Corrigido
+sliderElement.oninput = function() { 
   sizePassword.innerHTML = this.value;
 }
 
@@ -18,12 +18,12 @@ function generatePassword() {
   for(let i = 0, n = charset.length; i < sliderElement.value; ++i ) {
     pass += charset.charAt(Math.floor(Math.random() * n));
   }
-  novaSenha = pass; // Atribui a senha gerada à variável novaSenha
+  newPassword = pass; // Atribui a senha gerada à variável novaSenha
   containerPassword.classList.remove('hide');
   password.innerHTML = pass;
 }
 
 function copyPassword() {
   alert('Senha copiada com sucesso!');
-  navigator.clipboard.writeText(novaSenha);
+  navigator.clipboard.writeText(newPassword);
 }
